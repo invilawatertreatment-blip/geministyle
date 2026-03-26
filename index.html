@@ -10,29 +10,50 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(30, 64, 175, 0.03) 0%, transparent 40%);
             min-height: 100vh;
         }
 
-        .glass-header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        /* Header Putih Bersih sesuai Gambar Referensi */
+        .main-header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 12px 0;
         }
 
+        /* Tipografi Brand INVILA (Serif Hitam Pekat) */
         .brand-text {
             font-family: 'Noto Serif', serif;
-            color: #000000; /* Hitam Pekat */
-            letter-spacing: -0.02em;
+            color: #000000;
+            line-height: 1;
+            letter-spacing: -0.01em;
         }
 
+        /* Tagline Biru Spasi Lebar */
+        .sub-brand-text {
+            color: #2563eb;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            font-size: 10px;
+            margin-top: 2px;
+        }
+
+        /* Navigasi Link */
         .nav-link {
             position: relative;
             transition: all 0.3s ease;
             white-space: nowrap;
+            color: #475569;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
         }
 
         .nav-link::after {
@@ -40,174 +61,125 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: -4px;
+            left: 0;
             background: #2563eb;
             transition: width 0.3s ease;
-            border-radius: 2px;
         }
 
         .nav-link:hover::after {
             width: 100%;
         }
 
+        /* Tombol CTA Biru */
         .btn-cta {
-            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
-            background-size: 200% auto;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #2563eb;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
         .btn-cta:hover {
-            transform: translateY(-2px);
-            background-position: right center;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
-        .logo-glow {
-            filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.2));
-            transition: filter 0.3s ease;
+        /* Container Logo diperbesar 1.25x */
+        .logo-box {
+            width: 3.75rem; /* ~60px (Standard w-12 adalah 3rem/48px) */
+            height: 3.75rem;
         }
-        
-        .logo-link:hover .logo-glow {
-            filter: drop-shadow(0 4px 20px rgba(59, 130, 246, 0.4));
+
+        @media (min-width: 768px) {
+            .logo-box {
+                width: 5.5rem; /* ~88px */
+                height: 5.5rem;
+            }
         }
 
         #mobile-menu {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-20px);
-            opacity: 0;
-            pointer-events: none;
+            transition: all 0.3s ease;
             display: none;
         }
 
         #mobile-menu.active {
             display: flex;
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .hero-mesh {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-            background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(circle at center, black, transparent 80%);
         }
     </style>
 </head>
-<body class="text-slate-800 overflow-x-hidden">
+<body class="overflow-x-hidden">
 
-    <header class="glass-header fixed top-0 w-full z-50">
-        <div class="container mx-auto px-6 py-4 md:py-6">
+    <header class="main-header">
+        <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 
-                <!-- Logo Section -->
-                <a href="/" class="logo-link flex items-center space-x-6 md:space-x-8 group cursor-pointer transition-opacity hover:opacity-95">
-                    <div class="relative w-32 h-32 md:w-44 md:h-44 flex items-center justify-center">
-                        <!-- Menggunakan LOGO INVILA 2026.png -->
-                        <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="w-full h-full object-contain logo-glow" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <!-- SISI KIRI: Logo + Brand (Jarak Dibuat Sangat Rapat) -->
+                <a href="/" class="flex items-center space-x-1.5 md:space-x-2 group">
+                    <div class="logo-box relative flex items-center justify-center">
+                        <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         
                         <!-- Fallback SVG -->
-                        <svg viewBox="0 0 100 125" class="w-full h-full logo-glow overflow-visible hidden">
-                            <defs>
-                                <linearGradient id="dropGradNew" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z" fill="url(#dropGradNew)"/>
-                            <g transform="translate(30, 65) scale(0.4)" stroke="black" stroke-width="8" fill="none">
-                                <circle cx="20" cy="50" r="10" stroke="black" stroke-width="12" />
-                                <circle cx="80" cy="20" r="10" stroke="black" stroke-width="12" />
-                                <circle cx="80" cy="80" r="10" stroke="black" stroke-width="12" />
-                                <path d="M20 50 L80 20 M20 50 L80 80" />
-                                <circle cx="50" cy="50" r="8" fill="white" stroke="none" />
-                            </g>
+                        <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
+                            <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
                         </svg>
                     </div>
-                    <div class="flex flex-col leading-none">
-                        <!-- GANTI FONT KE SERIF & WARNA HITAM PEKAT -->
-                        <span class="brand-text text-4xl md:text-6xl font-black uppercase">INVILA<span class="text-sm align-top ml-0.5 font-bold">TM</span></span>
-                        <span class="text-[11px] md:text-[13px] text-blue-600 font-bold tracking-[0.4em] mt-2 md:mt-3 uppercase font-sans">Water as a Service</span>
+                    
+                    <div class="flex flex-col">
+                        <span class="brand-text text-3xl md:text-5xl font-black uppercase">
+                            INVILA<span class="text-xs align-top ml-0.5 font-bold">TM</span>
+                        </span>
+                        <span class="sub-brand-text uppercase font-sans">
+                            Water as a Service
+                        </span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <nav class="hidden xl:flex items-center space-x-12">
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Zero Capex</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Solutions</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Portfolio</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">IoT Tech</a>
+                <!-- TENGAH: Menu Navigasi (Desktop Only) -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="nav-link uppercase">Zero Capex</a>
+                    <a href="#" class="nav-link uppercase">Solutions</a>
+                    <a href="#" class="nav-link uppercase">Portfolio</a>
+                    <a href="#" class="nav-link uppercase">IoT Tech</a>
                 </nav>
 
-                <!-- CTA -->
+                <!-- KANAN: Button CTA -->
                 <div class="hidden md:block">
-                    <button class="btn-cta px-10 py-4 rounded-full text-[12px] font-extrabold tracking-[0.18em] text-white">
-                        HUBUNGI PARTNER
+                    <button class="btn-cta px-8 py-3 rounded-full text-[11px] font-extrabold tracking-widest uppercase">
+                        Hubungi Partner
                     </button>
                 </div>
 
                 <!-- Mobile Toggle -->
                 <button class="lg:hidden text-slate-800 p-2" onclick="toggleMenu()">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-8 flex flex-col space-y-6 shadow-xl">
-            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Zero Capex</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Solutions</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Portfolio</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">IoT Tech</a>
-            <div class="pt-4">
-                <button class="btn-cta w-full py-5 rounded-2xl text-sm font-bold tracking-widest uppercase text-white">Hubungi Partner</button>
-            </div>
+            <a href="#" class="text-sm font-bold tracking-widest text-slate-800 uppercase">Zero Capex</a>
+            <a href="#" class="text-sm font-bold tracking-widest text-slate-800 uppercase">Solutions</a>
+            <a href="#" class="text-sm font-bold tracking-widest text-slate-800 uppercase">Portfolio</a>
+            <a href="#" class="text-sm font-bold tracking-widest text-slate-800 uppercase">IoT Tech</a>
+            <button class="btn-cta w-full py-4 rounded-xl text-xs font-bold tracking-widest uppercase">Hubungi Partner</button>
         </div>
     </header>
 
-    <div class="hero-mesh"></div>
-
-    <!-- Main Content Section -->
-    <main class="container mx-auto px-6 pt-72 pb-20 flex flex-col items-center text-center">
-        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold tracking-widest uppercase mb-10 shadow-sm">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-            </span>
-            <span>Sustainable Industrial Water Solutions</span>
-        </div>
-        
-        <h1 class="text-5xl md:text-8xl font-black text-slate-900 mb-8 leading-[1.05] max-w-5xl tracking-tight">
-            Efficiency Through <br/>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-500">Intelligent Service.</span>
-        </h1>
-        
-        <p class="text-slate-500 text-lg md:text-xl max-w-3xl mb-14 leading-relaxed font-medium">
-            Tingkatkan standar operasional industri Anda dengan skema <b>WaaS (Water as a Service)</b>. <br class="hidden md:block"/> 
-            Implementasi teknologi mutakhir tanpa beban investasi awal.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-5">
-            <button class="px-12 py-5 bg-blue-600 text-white font-extrabold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">Mulai Zero Capex</button>
-            <button class="px-12 py-5 bg-white border border-slate-200 text-slate-900 font-extrabold rounded-full hover:bg-slate-50 transition-all shadow-sm">Lihat Roadmap Teknologi</button>
-        </div>
-
-        <div class="mt-24 pt-10 border-t border-slate-100 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60">
-            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">TRUSTED</div>
-            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">PARTNER</div>
-            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">INDUSTRY</div>
-            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">READY</div>
+    <!-- Konten Dummy untuk Preview Scroll -->
+    <main class="container mx-auto px-6 pt-48 pb-20">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+                Efisiensi Air Industri <br/>
+                <span class="text-blue-600">Tanpa Investasi Awal.</span>
+            </h1>
+            <p class="text-slate-500 text-lg md:text-xl leading-relaxed">
+                Hadirkan teknologi pengolahan air kelas dunia dengan skema **Zero Capex**. 
+                Fokus pada produksi Anda, biar kami yang mengelola airnya.
+            </p>
         </div>
     </main>
 
