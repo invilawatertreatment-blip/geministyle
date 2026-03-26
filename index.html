@@ -27,7 +27,7 @@
         .brand-text {
             font-family: 'Noto Serif', serif;
             color: #000000;
-            line-height: 0.85;
+            line-height: 1;
             letter-spacing: -0.01em;
         }
 
@@ -35,14 +35,14 @@
         .tagline-container {
             display: flex;
             align-items: baseline;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .tagline-blue {
             color: #2563eb;
             font-weight: 800;
-            letter-spacing: 0.3em;
-            font-size: 11px;
+            letter-spacing: 0.25em;
+            font-size: 10px;
             text-transform: uppercase;
         }
 
@@ -50,17 +50,17 @@
             font-family: 'Noto Serif', serif;
             color: #000000;
             font-weight: 700;
-            font-size: 13px;
-            margin-left: 8px;
+            font-size: 12px;
+            margin-left: 6px;
         }
 
-        /* Navigasi Link Sesuai Contoh Gambar */
+        /* Navigasi Link */
         .nav-link {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             color: #334155;
             transition: color 0.2s ease;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.05em;
             white-space: nowrap;
         }
 
@@ -71,21 +71,21 @@
         .nav-separator {
             color: #cbd5e1;
             font-weight: 300;
-            margin: 0 12px;
+            margin: 0 10px;
             font-size: 14px;
         }
 
-        /* Tombol CTA Sesuai Contoh Gambar (Pill Shape + Glow) */
+        /* Tombol CTA Pill Shape */
         .btn-cta {
             background-color: #2563eb;
             color: white;
             font-weight: 700;
-            font-size: 11px;
-            padding: 0.9rem 2.5rem;
-            border-radius: 9999px; /* Full Rounded / Pill */
+            font-size: 10px;
+            padding: 0.8rem 2.2rem;
+            border-radius: 9999px; 
             transition: all 0.3s ease;
-            letter-spacing: 0.12em;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            letter-spacing: 0.1em;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
             white-space: nowrap;
             text-transform: uppercase;
         }
@@ -93,26 +93,20 @@
         .btn-cta:hover {
             background-color: #1d4ed8;
             transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
         }
 
-        /* Proporsi Logo Group */
-        .logo-group-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 0.5rem;
-        }
-
+        /* Logo Box - Ukuran Diperbesar 2X */
+        /* Mobile: 3.5rem -> 7rem | Desktop: 4.5rem -> 9rem */
         .logo-box {
-            width: 4.5rem;
-            height: 4.5rem;
+            width: 7rem;
+            height: 7rem;
         }
 
         @media (min-width: 768px) {
             .logo-box {
-                width: 6.5rem;
-                height: 6.5rem;
+                width: 9rem;
+                height: 9rem;
             }
         }
 
@@ -141,31 +135,29 @@
         <div class="max-w-[1440px] mx-auto px-4 md:px-10">
             <div class="flex items-center justify-between">
                 
-                <!-- Branding Section (Logo + Brand Text) -->
-                <div class="flex items-center">
-                    <div class="logo-group-container">
-                        <div class="logo-box relative">
-                            <img src="LOGO INVILA 2026.png" alt="Ikon Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <!-- Cadangan SVG jika logo gagal muat -->
-                            <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
-                                <path d="M50 0C22.4 40 10 65 10 85C10 106.5 27.9 120 50 120C72.1 120 90 106.5 90 85C90 65 77.6 40 50 0Z"/>
-                            </svg>
-                        </div>
+                <!-- Sisi Kiri: Logo + Branding -->
+                <a href="/" class="flex items-center">
+                    <div class="logo-box relative flex items-center justify-center">
+                        <img src="LOGO INVILA 2026.png" alt="Ikon Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <!-- Cadangan SVG jika logo gagal muat -->
+                        <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
+                            <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
+                        </svg>
                     </div>
 
-                    <div class="flex flex-col ml-1 md:ml-3">
-                        <span class="brand-text text-4xl md:text-6xl font-black uppercase">
-                            INVILA<span class="text-sm align-top ml-1 font-bold">TM</span>
+                    <div class="flex flex-col ml-2 md:ml-4">
+                        <span class="brand-text text-3xl md:text-5xl font-black uppercase">
+                            INVILA<span class="text-xs align-top ml-1 font-bold">TM</span>
                         </span>
                         <div class="tagline-container">
                             <span class="tagline-blue">WATER AS A SERVICE</span>
                             <span class="tagline-waas">(W a a S)</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Desktop Navigation + CTA (Sesuai Contoh Gambar) -->
-                <div class="hidden lg:flex items-center space-x-12">
+                <!-- Sisi Tengah & Kanan: Navigasi + CTA -->
+                <div class="hidden lg:flex items-center space-x-10">
                     <nav class="flex items-center">
                         <a href="#" class="nav-link uppercase">ZERO CAPEX</a>
                         <span class="nav-separator">|</span>
@@ -181,7 +173,7 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
+                <!-- Toggle Menu Mobile -->
                 <button class="lg:hidden p-2 text-slate-800" id="menu-toggle">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -190,26 +182,26 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Dropdown -->
+        <!-- Dropdown Menu Mobile -->
         <div id="mobile-menu" class="lg:hidden">
-            <a href="#" class="py-4 text-sm font-bold tracking-widest border-b border-slate-50 uppercase">ZERO CAPEX</a>
-            <a href="#" class="py-4 text-sm font-bold tracking-widest border-b border-slate-50 uppercase">SOLUTIONS</a>
-            <a href="#" class="py-4 text-sm font-bold tracking-widest border-b border-slate-50 uppercase">PROVEN RESULTS</a>
-            <a href="#" class="py-4 text-sm font-bold tracking-widest border-b border-slate-50 uppercase">SCADA-IOT</a>
+            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">ZERO CAPEX</a>
+            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">SOLUTIONS</a>
+            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">PROVEN RESULTS</a>
+            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">SCADA-IOT</a>
             <div class="mt-6">
                 <a href="#contact" class="btn-cta inline-block w-full text-center uppercase">HUBUNGI PARTNER</a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="pt-56 pb-20 px-6">
+    <!-- Konten Utama: Padding top ditambah untuk menyesuaikan header yang lebih tinggi -->
+    <main class="pt-64 pb-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
                 Efisiensi Air Industri <br>
                 <span class="text-blue-600 font-extrabold">Tanpa Investasi.</span>
             </h1>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
                 Hadirkan solusi Water as a Service (WaaS) untuk efisiensi total melalui monitoring SCADA-IoT real-time. Fokus pada bisnis Anda, serahkan urusan air pada ahlinya.
             </p>
         </div>
