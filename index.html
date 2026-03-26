@@ -7,58 +7,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Serif:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #ffffff;
-            color: #1e293b;
+        :root {
+            --brand-blue: #2563eb;
+            --brand-dark: #0f172a;
+            --brand-gray: #64748b;
         }
 
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff; /* Kembali ke Putih Bersih */
+            color: var(--brand-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- HEADER LAYOUT --- */
         .main-header {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 100;
+            left: 0;
+            z-index: 1000;
             padding: 0.75rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Garis Pemisah Gradasi Lembut & Elegan */
-        .main-header::after {
-            content: '';
+        .main-header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Gradasi Garis Lembut di Bawah Header */
+        .header-border {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 1px;
             background: linear-gradient(to right, 
-                rgba(255, 255, 255, 0) 0%, 
-                rgba(226, 232, 240, 0.8) 15%, 
-                rgba(37, 99, 235, 0.2) 50%, 
-                rgba(226, 232, 240, 0.8) 85%, 
-                rgba(255, 255, 255, 0) 100%
+                transparent 0%, 
+                rgba(37, 99, 235, 0.1) 20%, 
+                rgba(37, 99, 235, 0.3) 50%, 
+                rgba(37, 99, 235, 0.1) 80%, 
+                transparent 100%
             );
         }
 
-        /* Tipografi Brand INVILA (Serif Hitam Pekat) */
+        /* Brand Typography */
         .brand-text {
             font-family: 'Noto Serif', serif;
             color: #000000;
             line-height: 1;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
+            font-weight: 900;
         }
 
-        /* Tagline Gabungan */
         .tagline-container {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             margin-top: 4px;
         }
 
         .tagline-blue {
-            color: #2563eb;
+            color: var(--brand-blue);
             font-weight: 800;
-            letter-spacing: 0.25em;
-            font-size: 10px;
+            letter-spacing: 0.2em;
+            font-size: clamp(9px, 1vw, 11px);
             text-transform: uppercase;
         }
 
@@ -66,114 +81,128 @@
             font-family: 'Noto Serif', serif;
             color: #000000;
             font-weight: 700;
-            font-size: 12px;
-            margin-left: 6px;
+            font-size: clamp(10px, 1.2vw, 13px);
+            margin-left: 8px;
         }
 
-        /* Navigasi Link */
+        /* Navigation Links */
         .nav-link {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
-            color: #334155;
-            transition: color 0.2s ease;
+            color: var(--brand-gray);
+            transition: all 0.3s ease;
             letter-spacing: 0.05em;
-            white-space: nowrap;
+            position: relative;
         }
 
         .nav-link:hover {
-            color: #2563eb;
+            color: var(--brand-blue);
         }
 
         .nav-separator {
-            color: #cbd5e1;
+            color: #e2e8f0;
             font-weight: 300;
-            margin: 0 10px;
-            font-size: 14px;
+            margin: 0 12px;
         }
 
-        /* Tombol CTA Pill Shape */
+        /* CTA Button Pill Shape */
         .btn-cta {
-            background-color: #2563eb;
+            background-color: var(--brand-blue);
             color: white;
             font-weight: 700;
-            font-size: 10px;
-            padding: 0.8rem 2.2rem;
+            font-size: 11px;
+            padding: 0.85rem 2.25rem;
             border-radius: 9999px; 
             transition: all 0.3s ease;
-            letter-spacing: 0.1em;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-            white-space: nowrap;
+            letter-spacing: 0.08em;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
             text-transform: uppercase;
         }
 
         .btn-cta:hover {
             background-color: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
         }
 
-        /* Logo Box - Ukuran 2X */
+        /* Logo Sizing (Diperbesar 2X) */
         .logo-box {
-            width: 7rem;
-            height: 7rem;
+            width: clamp(6rem, 12vw, 9rem);
+            height: auto;
+            transition: all 0.4s ease;
         }
 
-        @media (min-width: 768px) {
-            .logo-box {
-                width: 9rem;
-                height: 9rem;
-            }
+        .main-header.scrolled .logo-box {
+            transform: scale(0.9);
+        }
+
+        /* --- HERO CONTENT LAYOUT --- */
+        .hero-section {
+            padding-top: calc(180px + 5vw);
+            padding-bottom: 5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--brand-dark);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 1.5vw, 1.4rem);
+            line-height: 1.7;
+            max-width: 850px;
+            margin: 2.5rem auto;
+            color: var(--brand-gray);
         }
 
         /* Mobile Menu */
         #mobile-menu {
-            display: none;
-            flex-direction: column;
-            background-color: white;
-            border-top: 1px solid #e2e8f0;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-10px);
+            opacity: 0;
+            pointer-events: none;
         }
 
         #mobile-menu.active {
             display: flex;
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-10">
+    <header class="main-header" id="header">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12">
             <div class="flex items-center justify-between">
                 
-                <!-- Sisi Kiri: Logo + Branding -->
-                <a href="/" class="flex items-center">
-                    <div class="logo-box relative flex items-center justify-center">
+                <!-- Brand Identity -->
+                <a href="/" class="flex items-center group">
+                    <div class="logo-box flex items-center justify-center">
+                        <!-- Logo Tetesan Air Tanpa Teks di Bawahnya -->
                         <img src="LOGO INVILA 2026.png" alt="Ikon Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <!-- Cadangan SVG jika logo gagal muat -->
                         <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
                             <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
                         </svg>
                     </div>
 
-                    <!-- Spasi dirapatkan menjadi ml-0.5 dan ml-1 sesuai instruksi -->
-                    <div class="flex flex-col ml-0.5 md:ml-1">
-                        <span class="brand-text text-3xl md:text-5xl font-black uppercase">
-                            INVILA<span class="text-xs align-top ml-1 font-bold">TM</span>
+                    <div class="flex flex-col ml-1 md:ml-2">
+                        <span class="brand-text text-3xl md:text-5xl uppercase">
+                            INVILA<span class="text-[0.4em] align-top ml-0.5 font-bold">TM</span>
                         </span>
                         <div class="tagline-container">
-                            <span class="tagline-blue">WATER AS A SERVICE</span>
+                            <span class="tagline-blue">Water as a Service</span>
                             <span class="tagline-waas">(W a a S)</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- Sisi Tengah & Kanan: Navigasi + CTA -->
-                <div class="hidden lg:flex items-center space-x-10">
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-12">
                     <nav class="flex items-center">
                         <a href="#" class="nav-link uppercase">ZERO CAPEX</a>
                         <span class="nav-separator">|</span>
@@ -189,7 +218,7 @@
                     </a>
                 </div>
 
-                <!-- Toggle Menu Mobile -->
+                <!-- Mobile Trigger -->
                 <button class="lg:hidden p-2 text-slate-800" id="menu-toggle">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -197,29 +226,77 @@
                 </button>
             </div>
         </div>
+        <div class="header-border"></div>
 
-        <!-- Dropdown Menu Mobile -->
-        <div id="mobile-menu" class="lg:hidden">
-            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">ZERO CAPEX</a>
-            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">SOLUTIONS</a>
-            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">PROVEN RESULTS</a>
-            <a href="#" class="py-4 text-xs font-bold tracking-widest border-b border-slate-50 uppercase">SCADA-IOT</a>
-            <div class="mt-6">
-                <a href="#contact" class="btn-cta inline-block w-full text-center uppercase">HUBUNGI PARTNER</a>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 flex flex-col p-10 space-y-6 shadow-2xl">
+            <a href="#" class="nav-link text-lg border-b border-slate-50 pb-4 uppercase">ZERO CAPEX</a>
+            <a href="#" class="nav-link text-lg border-b border-slate-50 pb-4 uppercase">SOLUTIONS</a>
+            <a href="#" class="nav-link text-lg border-b border-slate-50 pb-4 uppercase">PROVEN RESULTS</a>
+            <a href="#" class="nav-link text-lg border-b border-slate-50 pb-4 uppercase">SCADA-IOT</a>
+            <div class="pt-4">
+                <a href="#contact" class="btn-cta block text-center uppercase">HUBUNGI PARTNER</a>
             </div>
         </div>
     </header>
 
-    <!-- Konten Utama -->
-    <main class="pt-64 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
-                Efisiensi Air Industri <br>
-                <span class="text-blue-600 font-extrabold">Tanpa Investasi.</span>
+    <!-- Main Content Layout -->
+    <main class="hero-section container mx-auto px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            
+            <!-- Professional Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold tracking-widest uppercase mb-10">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
+                <span>Water Infrastructure Excellence</span>
+            </div>
+
+            <!-- Header Utama Baru -->
+            <h1 class="hero-title">
+                Dari Air Limbah Menjadi <br>
+                <span class="text-blue-600">Air Bersih yang Bernilai.</span>
             </h1>
-            <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                Hadirkan solusi Water as a Service (WaaS) untuk efisiensi total melalui monitoring SCADA-IoT real-time. Fokus pada bisnis Anda, serahkan urusan air pada ahlinya.
+
+            <!-- Subheader Baru -->
+            <p class="hero-subtitle">
+                <strong>Invila™</strong> mengubah air limbah industri dari beban operasional menjadi pasokan air bersih bernilai dengan skema <span class="text-slate-900 font-bold">Zero-CAPEX pay as you use</span>.
             </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12">
+                <button class="px-12 py-5 bg-blue-600 text-white font-bold rounded-full shadow-2xl shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all text-sm tracking-wide">
+                    PELAJARI SKEMA ZERO-CAPEX
+                </button>
+                <button class="px-12 py-5 border-2 border-slate-200 text-slate-800 font-bold rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all text-sm tracking-wide">
+                    KONSULTASI TEKNIS
+                </button>
+            </div>
+
+            <!-- Information Grid -->
+            <div class="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition-hover hover:shadow-xl hover:bg-white transition-all">
+                    <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SCADA-IoT Tech</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Monitoring data real-time untuk efisiensi operasional maksimal di setiap tetes air.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition-hover hover:shadow-xl hover:bg-white transition-all">
+                    <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Proven Results</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Implementasi yang terbukti menurunkan beban operasional di berbagai sektor industri.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 transition-hover hover:shadow-xl hover:bg-white transition-all">
+                    <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Zero Risk</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Investasi infrastruktur sepenuhnya ditanggung kami dengan model pay-as-you-use.</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -227,6 +304,7 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
+        const header = document.getElementById('header');
 
         menuToggle.addEventListener('click', () => {
             const isActive = mobileMenu.classList.toggle('active');
@@ -234,6 +312,14 @@
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
             } else {
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
     </script>
