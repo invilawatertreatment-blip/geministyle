@@ -9,18 +9,18 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #020617;
+            background-color: #ffffff;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(30, 64, 175, 0.03) 0%, transparent 40%);
             min-height: 100vh;
         }
 
         .glass-header {
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .nav-link {
@@ -37,7 +37,7 @@
             bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            background: #3b82f6;
+            background: #2563eb;
             transition: width 0.3s ease;
             border-radius: 2px;
         }
@@ -49,23 +49,23 @@
         .btn-cta {
             background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
             background-size: 200% auto;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn-cta:hover {
             transform: translateY(-2px);
             background-position: right center;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
         }
 
         .logo-glow {
-            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+            filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.2));
             transition: filter 0.3s ease;
         }
         
         .logo-link:hover .logo-glow {
-            filter: drop-shadow(0 0 35px rgba(59, 130, 246, 0.7));
+            filter: drop-shadow(0 4px 20px rgba(59, 130, 246, 0.4));
         }
 
         #mobile-menu {
@@ -90,26 +90,26 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.3;
-            background-image: radial-gradient(#1e3a8a 0.5px, transparent 0.5px);
-            background-size: 30px 30px;
+            opacity: 0.15;
+            background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
             mask-image: radial-gradient(circle at center, black, transparent 80%);
         }
     </style>
 </head>
-<body class="text-slate-100 overflow-x-hidden">
+<body class="text-slate-800 overflow-x-hidden">
 
     <header class="glass-header fixed top-0 w-full z-50">
-        <div class="container mx-auto px-6 py-6">
+        <div class="container mx-auto px-6 py-4 md:py-6">
             <div class="flex items-center justify-between">
                 
-                <!-- Logo Section: Dibungkus dengan tautan (<a>) -->
-                <a href="/" class="logo-link flex items-center space-x-8 group cursor-pointer transition-opacity hover:opacity-90">
-                    <div class="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
+                <!-- Logo Section: Background Putih -->
+                <a href="/" class="logo-link flex items-center space-x-6 md:space-x-8 group cursor-pointer transition-opacity hover:opacity-95">
+                    <div class="relative w-32 h-32 md:w-44 md:h-44 flex items-center justify-center">
                         <!-- Menggunakan LOGO INVILA 2026.png -->
                         <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="w-full h-full object-contain logo-glow" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         
-                        <!-- Fallback SVG jika gambar tidak ditemukan -->
+                        <!-- Fallback SVG -->
                         <svg viewBox="0 0 100 125" class="w-full h-full logo-glow overflow-visible hidden">
                             <defs>
                                 <linearGradient id="dropGradNew" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -128,17 +128,17 @@
                         </svg>
                     </div>
                     <div class="flex flex-col leading-none">
-                        <span class="text-4xl md:text-6xl font-black tracking-tighter text-white">INVILA<span class="text-sm align-top ml-1 font-bold text-blue-400">TM</span></span>
-                        <span class="text-[12px] md:text-[14px] text-blue-300 font-bold tracking-[0.4em] mt-3 uppercase">Water as a Service</span>
+                        <span class="text-3xl md:text-5xl font-black tracking-tighter text-slate-900 uppercase">INVILA<span class="text-xs align-top ml-1 font-bold text-blue-600">TM</span></span>
+                        <span class="text-[11px] md:text-[13px] text-blue-600 font-bold tracking-[0.4em] mt-2 md:mt-3 uppercase">Water as a Service</span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation: Warna Gelap untuk Background Putih -->
                 <nav class="hidden xl:flex items-center space-x-12">
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Zero Capex</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Solutions</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Portfolio</a>
-                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">IoT Tech</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Zero Capex</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Solutions</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">Portfolio</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-600 hover:text-blue-600 uppercase">IoT Tech</a>
                 </nav>
 
                 <!-- CTA -->
@@ -149,7 +149,7 @@
                 </div>
 
                 <!-- Mobile Toggle -->
-                <button class="lg:hidden text-white p-2" onclick="toggleMenu()">
+                <button class="lg:hidden text-slate-800 p-2" onclick="toggleMenu()">
                     <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -157,43 +157,50 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-slate-950/98 border-b border-white/5 p-8 flex flex-col space-y-6">
-            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Zero Capex</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Solutions</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Portfolio</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">IoT Tech</a>
+        <!-- Mobile Menu: Background Putih -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-8 flex flex-col space-y-6 shadow-xl">
+            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Zero Capex</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Solutions</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">Portfolio</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-600 uppercase hover:text-blue-600">IoT Tech</a>
             <div class="pt-4">
-                <button class="btn-cta w-full py-5 rounded-2xl text-sm font-bold tracking-widest uppercase">Hubungi Partner</button>
+                <button class="btn-cta w-full py-5 rounded-2xl text-sm font-bold tracking-widest uppercase text-white">Hubungi Partner</button>
             </div>
         </div>
     </header>
 
     <div class="hero-mesh"></div>
 
-    <!-- Main Content Section -->
-    <main class="container mx-auto px-6 pt-80 pb-20 flex flex-col items-center text-center">
-        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-10">
+    <!-- Main Content Section: Tema Terang -->
+    <main class="container mx-auto px-6 pt-72 pb-20 flex flex-col items-center text-center">
+        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold tracking-widest uppercase mb-10 shadow-sm">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
             </span>
             <span>Sustainable Industrial Water Solutions</span>
         </div>
         
-        <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-[1.05] max-w-5xl tracking-tight">
+        <h1 class="text-5xl md:text-8xl font-black text-slate-900 mb-8 leading-[1.05] max-w-5xl tracking-tight">
             Efficiency Through <br/>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-100 to-cyan-300">Intelligent Service.</span>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-500">Intelligent Service.</span>
         </h1>
         
-        <p class="text-slate-400 text-lg md:text-xl max-w-3xl mb-14 leading-relaxed font-medium">
+        <p class="text-slate-500 text-lg md:text-xl max-w-3xl mb-14 leading-relaxed font-medium">
             Tingkatkan standar operasional industri Anda dengan skema <b>WaaS (Water as a Service)</b>. <br class="hidden md:block"/> 
             Implementasi teknologi mutakhir tanpa beban investasi awal.
         </p>
         
         <div class="flex flex-col sm:flex-row gap-5">
-            <button class="px-12 py-5 bg-white text-slate-950 font-extrabold rounded-full hover:bg-blue-50 transition-all shadow-2xl shadow-white/5">Mulai Zero Capex</button>
-            <button class="px-12 py-5 bg-transparent border border-slate-700 text-white font-extrabold rounded-full hover:bg-slate-800 transition-all">Lihat Roadmap Teknologi</button>
+            <button class="px-12 py-5 bg-blue-600 text-white font-extrabold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-200">Mulai Zero Capex</button>
+            <button class="px-12 py-5 bg-white border border-slate-200 text-slate-900 font-extrabold rounded-full hover:bg-slate-50 transition-all shadow-sm">Lihat Roadmap Teknologi</button>
+        </div>
+
+        <div class="mt-24 pt-10 border-t border-slate-100 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60">
+            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">TRUSTED</div>
+            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">PARTNER</div>
+            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">INDUSTRY</div>
+            <div class="flex items-center justify-center font-extrabold tracking-tighter text-xl text-slate-400">READY</div>
         </div>
     </main>
 
