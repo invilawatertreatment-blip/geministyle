@@ -21,22 +21,14 @@
             z-index: 50;
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 20px 0;
-        }
-
-        /* Tipografi Brand INVILA (Serif Hitam Pekat) */
-        .brand-text {
-            font-family: 'Noto Serif', serif;
-            color: #000000;
-            line-height: 0.9;
-            letter-spacing: -0.02em;
+            padding: 15px 0;
         }
 
         /* Tagline Gabungan Biru dan Hitam (W a a S) */
         .tagline-container {
             display: flex;
             align-items: baseline;
-            margin-top: 8px;
+            margin-top: 5px;
         }
 
         .sub-brand-text-blue {
@@ -99,32 +91,17 @@
             transform: translateY(-1px);
         }
 
-        /* Ukuran Logo 125% dengan Jarak Rapat */
-        .logo-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        /* Ukuran Logo besar (sudah termasuk teks INVILA di dalamnya) */
         .logo-box {
-            width: 8rem;
-            height: 8rem;
+            width: 15rem; /* Ukuran disesuaikan karena logo kini menyatu dengan teks */
+            height: auto;
+            max-height: 120px;
         }
 
         @media (min-width: 768px) {
             .logo-box {
-                width: 12rem; 
-                height: 12rem;
+                width: 22rem; 
             }
-        }
-
-        .logo-sub-text {
-            font-family: 'Noto Serif', serif;
-            font-weight: 900;
-            font-size: 10px;
-            color: #000000;
-            margin-top: -10px;
-            letter-spacing: 0.05em;
         }
 
         #mobile-menu {
@@ -149,34 +126,23 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 
-                <!-- SISI KIRI: Logo + Brand (Sesuai Gambar Referensi) -->
-                <a href="/" class="flex items-center space-x-2 md:space-x-3 group">
-                    <!-- Kelompok Logo (Icon + Teks Kecil di bawahnya) -->
-                    <div class="logo-group">
-                        <div class="logo-box relative flex items-center justify-center">
-                            <img src="LOGO INVILA 2026.png" alt="Logo Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <!-- Cadangan SVG -->
-                            <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
-                                <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
-                            </svg>
-                        </div>
-                        <span class="logo-sub-text uppercase">INVILA<span class="text-[6px] align-top ml-0.5">TM</span></span>
-                    </div>
+                <!-- SISI KIRI: Logo yang sudah menyatu dengan teks -->
+                <a href="/" class="flex flex-col group">
+                    <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="logo-box object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     
-                    <div class="flex flex-col">
-                        <!-- Brand Utama -->
-                        <span class="brand-text text-5xl md:text-7xl font-black uppercase">
-                            INVILA<span class="text-sm align-top ml-1 font-bold">TM</span>
-                        </span>
-                        <!-- Tagline Gabungan -->
-                        <div class="tagline-container">
-                            <span class="sub-brand-text-blue">WATER AS A SERVICE</span>
-                            <span class="sub-brand-text-waas">(W a a S)</span>
-                        </div>
+                    <!-- Fallback jika gambar logo tidak muncul -->
+                    <div class="hidden">
+                        <span style="font-family: 'Noto Serif', serif; font-weight: 900; font-size: 2rem;">INVILA™</span>
+                    </div>
+
+                    <!-- Tagline tetap di bawah logo/teks yang sudah menyatu -->
+                    <div class="tagline-container">
+                        <span class="sub-brand-text-blue">WATER AS A SERVICE</span>
+                        <span class="sub-brand-text-waas">(W a a S)</span>
                     </div>
                 </a>
 
-                <!-- TENGAH: Menu Navigasi Sesuai Instruksi -->
+                <!-- TENGAH: Menu Navigasi -->
                 <nav class="hidden lg:flex items-center space-x-4">
                     <a href="#" class="nav-link uppercase">ZERO CAPEX</a>
                     <span class="nav-separator">|</span>
@@ -214,7 +180,7 @@
     </header>
 
     <!-- Konten Utama -->
-    <main class="container mx-auto px-6 pt-96 pb-20">
+    <main class="container mx-auto px-6 pt-64 pb-20">
         <div class="text-center max-w-4xl mx-auto">
             <h1 class="text-5xl md:text-8xl font-black text-slate-900 mb-10 leading-tight">
                 Efisiensi Air Industri <br/>
