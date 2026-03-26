@@ -21,7 +21,7 @@
             z-index: 50;
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 16px 0; /* Padding sedikit ditambah untuk logo yang lebih besar */
+            padding: 24px 0; /* Padding ditingkatkan untuk menampung logo besar */
         }
 
         /* Tipografi Brand INVILA (Serif Hitam Pekat) */
@@ -37,8 +37,8 @@
             color: #2563eb;
             font-weight: 700;
             letter-spacing: 0.35em;
-            font-size: 11px;
-            margin-top: 4px;
+            font-size: 12px;
+            margin-top: 6px;
         }
 
         /* Navigasi Link */
@@ -47,7 +47,7 @@
             transition: all 0.3s ease;
             white-space: nowrap;
             color: #475569;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.15em;
         }
@@ -85,17 +85,16 @@
             box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
-        /* Container Logo diperbesar 1.5x dari versi sebelumnya */
-        /* Sebelumnya: Mobile 3.75rem -> 5.625rem | Desktop 5.5rem -> 8.25rem */
+        /* Ukuran Logo ditingkatkan lebih besar lagi */
         .logo-box {
-            width: 5.625rem; 
-            height: 5.625rem;
+            width: 7.5rem;  /* Ditingkatkan dari 5.625rem */
+            height: 7.5rem;
         }
 
         @media (min-width: 768px) {
             .logo-box {
-                width: 8.25rem; 
-                height: 8.25rem;
+                width: 11rem; /* Ditingkatkan dari 8.25rem */
+                height: 11rem;
             }
         }
 
@@ -115,19 +114,19 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 
-                <!-- SISI KIRI: Logo + Brand (Jarak Tetap Rapat) -->
-                <a href="/" class="flex items-center space-x-2 md:space-x-3 group">
+                <!-- SISI KIRI: Logo + Brand (Jarak Rapat) -->
+                <a href="/" class="flex items-center space-x-3 md:space-x-4 group">
                     <div class="logo-box relative flex items-center justify-center">
-                        <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="LOGO INVILA 2026.png" alt="Logo Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         
-                        <!-- Fallback SVG jika gambar tidak ditemukan -->
+                        <!-- Cadangan SVG jika gambar tidak ditemukan -->
                         <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
                             <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
                         </svg>
                     </div>
                     
                     <div class="flex flex-col">
-                        <span class="brand-text text-4xl md:text-6xl font-black uppercase">
+                        <span class="brand-text text-5xl md:text-7xl font-black uppercase">
                             INVILA<span class="text-sm align-top ml-0.5 font-bold">TM</span>
                         </span>
                         <span class="sub-brand-text uppercase font-sans">
@@ -136,54 +135,54 @@
                     </div>
                 </a>
 
-                <!-- TENGAH: Menu Navigasi (Desktop Only) -->
-                <nav class="hidden lg:flex items-center space-x-10">
+                <!-- TENGAH: Menu Navigasi (Desktop) -->
+                <nav class="hidden lg:flex items-center space-x-12">
                     <a href="#" class="nav-link uppercase">Zero Capex</a>
                     <a href="#" class="nav-link uppercase">Solutions</a>
                     <a href="#" class="nav-link uppercase">Portfolio</a>
                     <a href="#" class="nav-link uppercase">IoT Tech</a>
                 </nav>
 
-                <!-- KANAN: Button CTA -->
+                <!-- KANAN: Tombol CTA -->
                 <div class="hidden md:block">
-                    <button class="btn-cta px-10 py-3.5 rounded-full text-[11px] font-extrabold tracking-widest uppercase">
+                    <button class="btn-cta px-12 py-4 rounded-full text-[12px] font-extrabold tracking-widest uppercase">
                         Hubungi Partner
                     </button>
                 </div>
 
-                <!-- Mobile Toggle -->
+                <!-- Toggle Menu Mobile -->
                 <button class="lg:hidden text-slate-800 p-2" onclick="toggleMenu()">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-8 flex flex-col space-y-6 shadow-xl">
-            <a href="#" class="text-base font-bold tracking-widest text-slate-800 uppercase">Zero Capex</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-800 uppercase">Solutions</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-800 uppercase">Portfolio</a>
-            <a href="#" class="text-base font-bold tracking-widest text-slate-800 uppercase">IoT Tech</a>
-            <button class="btn-cta w-full py-5 rounded-xl text-xs font-bold tracking-widest uppercase">Hubungi Partner</button>
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 p-10 flex flex-col space-y-8 shadow-xl">
+            <a href="#" class="text-lg font-bold tracking-widest text-slate-800 uppercase">Zero Capex</a>
+            <a href="#" class="text-lg font-bold tracking-widest text-slate-800 uppercase">Solutions</a>
+            <a href="#" class="text-lg font-bold tracking-widest text-slate-800 uppercase">Portfolio</a>
+            <a href="#" class="text-lg font-bold tracking-widest text-slate-800 uppercase">IoT Tech</a>
+            <button class="btn-cta w-full py-6 rounded-xl text-sm font-bold tracking-widest uppercase">Hubungi Partner</button>
         </div>
     </header>
 
-    <!-- Konten Utama: Padding-top disesuaikan untuk header yang lebih besar -->
-    <main class="container mx-auto px-6 pt-64 pb-20">
+    <!-- Konten Utama: Jarak atas ditambah untuk menampung logo yang lebih besar -->
+    <main class="container mx-auto px-6 pt-80 pb-20">
         <div class="text-center max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-8 leading-tight">
+            <h1 class="text-5xl md:text-8xl font-black text-slate-900 mb-10 leading-tight">
                 Efisiensi Air Industri <br/>
-                <span class="text-blue-600">Tanpa Investasi Awal.</span>
+                <span class="text-blue-600">Tanpa Investasi.</span>
             </h1>
-            <p class="text-slate-500 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                Implementasikan teknologi pengolahan air mutakhir dengan skema **Zero Capex**. 
-                Biarkan kami yang mengelola infrastruktur, sementara Anda fokus pada akselerasi produksi.
+            <p class="text-slate-500 text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto">
+                Hadirkan teknologi pengolahan air tercanggih dengan skema **Zero Capex**. 
+                Anda hanya membayar air yang digunakan, kami yang mengelola infrastrukturnya.
             </p>
-            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-                <button class="px-10 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-black transition-all">Lihat Skema WaaS</button>
-                <button class="px-10 py-4 border border-slate-200 text-slate-900 font-bold rounded-full hover:bg-slate-50 transition-all">Konsultasi Teknis</button>
+            <div class="mt-16 flex flex-col sm:flex-row justify-center gap-6">
+                <button class="px-12 py-5 bg-slate-900 text-white font-bold rounded-full hover:bg-black transition-all text-lg">Mulai Sekarang</button>
+                <button class="px-12 py-5 border-2 border-slate-200 text-slate-900 font-bold rounded-full hover:bg-slate-50 transition-all text-lg">Pelajari WaaS</button>
             </div>
         </div>
     </main>
