@@ -21,24 +21,39 @@
             z-index: 50;
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 24px 0;
+            padding: 20px 0;
         }
 
         /* Tipografi Brand INVILA (Serif Hitam Pekat) */
         .brand-text {
             font-family: 'Noto Serif', serif;
             color: #000000;
-            line-height: 1;
-            letter-spacing: -0.01em;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
         }
 
-        /* Tagline Biru Spasi Lebar */
-        .sub-brand-text {
+        /* Tagline Gabungan Biru dan Hitam (W a a S) */
+        .tagline-container {
+            display: flex;
+            align-items: baseline;
+            margin-top: 8px;
+        }
+
+        .sub-brand-text-blue {
             color: #2563eb;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .sub-brand-text-waas {
+            font-family: 'Noto Serif', serif;
+            color: #000000;
             font-weight: 700;
-            letter-spacing: 0.35em;
-            font-size: 12px;
-            margin-top: 6px;
+            font-size: 14px;
+            margin-left: 12px;
+            letter-spacing: 0.1em;
         }
 
         /* Navigasi Link */
@@ -82,21 +97,34 @@
         .btn-cta:hover {
             background: #1d4ed8;
             transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
-        /* Ukuran Logo ditingkatkan 125% dari sebelumnya */
-        /* Sebelumnya: Mobile 7.5rem -> 9.375rem | Desktop 11rem -> 13.75rem */
+        /* Ukuran Logo 125% dengan Jarak Rapat */
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .logo-box {
-            width: 9.375rem;
-            height: 9.375rem;
+            width: 8rem;
+            height: 8rem;
         }
 
         @media (min-width: 768px) {
             .logo-box {
-                width: 13.75rem; 
-                height: 13.75rem;
+                width: 12rem; 
+                height: 12rem;
             }
+        }
+
+        .logo-sub-text {
+            font-family: 'Noto Serif', serif;
+            font-weight: 900;
+            font-size: 10px;
+            color: #000000;
+            margin-top: -10px;
+            letter-spacing: 0.05em;
         }
 
         #mobile-menu {
@@ -111,7 +139,7 @@
         .nav-separator {
             color: #cbd5e1;
             font-weight: 300;
-            margin: 0 4px;
+            margin: 0 6px;
         }
     </style>
 </head>
@@ -121,29 +149,35 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 
-                <!-- SISI KIRI: Logo + Brand (Jarak Rapat 1/2 dari sebelumnya) -->
-                <a href="/" class="flex items-center space-x-1.5 md:space-x-2 group">
-                    <div class="logo-box relative flex items-center justify-center">
-                        <img src="LOGO INVILA 2026.png" alt="Logo Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        
-                        <!-- Cadangan SVG -->
-                        <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
-                            <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
-                        </svg>
+                <!-- SISI KIRI: Logo + Brand (Sesuai Gambar Referensi) -->
+                <a href="/" class="flex items-center space-x-2 md:space-x-3 group">
+                    <!-- Kelompok Logo (Icon + Teks Kecil di bawahnya) -->
+                    <div class="logo-group">
+                        <div class="logo-box relative flex items-center justify-center">
+                            <img src="LOGO INVILA 2026.png" alt="Logo Invila" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <!-- Cadangan SVG -->
+                            <svg viewBox="0 0 100 125" class="w-full h-full hidden" fill="#2563eb">
+                                <path d="M50 0C25 45 15 65 15 85C15 107 30 125 50 125C70 125 85 107 85 85C85 65 75 45 50 0Z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-sub-text uppercase">INVILA<span class="text-[6px] align-top ml-0.5">TM</span></span>
                     </div>
                     
                     <div class="flex flex-col">
+                        <!-- Brand Utama -->
                         <span class="brand-text text-5xl md:text-7xl font-black uppercase">
-                            INVILA<span class="text-sm align-top ml-0.5 font-bold">TM</span>
+                            INVILA<span class="text-sm align-top ml-1 font-bold">TM</span>
                         </span>
-                        <span class="sub-brand-text uppercase font-sans">
-                            Water as a Service
-                        </span>
+                        <!-- Tagline Gabungan -->
+                        <div class="tagline-container">
+                            <span class="sub-brand-text-blue">WATER AS A SERVICE</span>
+                            <span class="sub-brand-text-waas">(W a a S)</span>
+                        </div>
                     </div>
                 </a>
 
-                <!-- TENGAH: Menu Navigasi Baru -->
-                <nav class="hidden lg:flex items-center space-x-6">
+                <!-- TENGAH: Menu Navigasi Sesuai Instruksi -->
+                <nav class="hidden lg:flex items-center space-x-4">
                     <a href="#" class="nav-link uppercase">ZERO CAPEX</a>
                     <span class="nav-separator">|</span>
                     <a href="#" class="nav-link uppercase">SOLUTIONS</a>
@@ -153,7 +187,7 @@
                     <a href="#" class="nav-link uppercase">SCADA-IOT</a>
                 </nav>
 
-                <!-- KANAN: Tombol CTA -->
+                <!-- KANAN: Button CTA -->
                 <div class="hidden md:block">
                     <button class="btn-cta px-10 py-4 rounded-full text-[11px] font-extrabold tracking-widest uppercase">
                         Hubungi Partner
@@ -179,7 +213,7 @@
         </div>
     </header>
 
-    <!-- Konten Utama: Padding-top ditingkatkan karena logo semakin besar -->
+    <!-- Konten Utama -->
     <main class="container mx-auto px-6 pt-96 pb-20">
         <div class="text-center max-w-4xl mx-auto">
             <h1 class="text-5xl md:text-8xl font-black text-slate-900 mb-10 leading-tight">
@@ -187,7 +221,7 @@
                 <span class="text-blue-600">Tanpa Investasi.</span>
             </h1>
             <p class="text-slate-500 text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto">
-                Hadirkan teknologi pengolahan air tercanggih dengan skema **Zero Capex**. 
+                Implementasikan teknologi pengolahan air tercanggih dengan skema **Zero Capex**. 
                 Anda hanya membayar air yang digunakan, kami yang mengelola infrastrukturnya.
             </p>
         </div>
