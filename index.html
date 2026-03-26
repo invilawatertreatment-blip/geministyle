@@ -60,7 +60,12 @@
         }
 
         .logo-glow {
-            filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));
+            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.5));
+            transition: filter 0.3s ease;
+        }
+        
+        .logo-link:hover .logo-glow {
+            filter: drop-shadow(0 0 35px rgba(59, 130, 246, 0.7));
         }
 
         #mobile-menu {
@@ -95,16 +100,16 @@
 <body class="text-slate-100 overflow-x-hidden">
 
     <header class="glass-header fixed top-0 w-full z-50">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-6 py-6">
             <div class="flex items-center justify-between">
                 
-                <!-- Logo Section: Menggunakan LOGO INVILA 2026.png -->
-                <div class="flex items-center space-x-4 group cursor-pointer">
-                    <div class="relative w-12 h-12 flex items-center justify-center">
-                        <!-- Mencoba memuat file gambar asli -->
+                <!-- Logo Section: Dibungkus dengan tautan (<a>) -->
+                <a href="/" class="logo-link flex items-center space-x-8 group cursor-pointer transition-opacity hover:opacity-90">
+                    <div class="relative w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
+                        <!-- Menggunakan LOGO INVILA 2026.png -->
                         <img src="LOGO INVILA 2026.png" alt="Invila Logo" class="w-full h-full object-contain logo-glow" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         
-                        <!-- Fallback SVG jika file gambar tidak ditemukan di preview -->
+                        <!-- Fallback SVG jika gambar tidak ditemukan -->
                         <svg viewBox="0 0 100 125" class="w-full h-full logo-glow overflow-visible hidden">
                             <defs>
                                 <linearGradient id="dropGradNew" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -123,29 +128,29 @@
                         </svg>
                     </div>
                     <div class="flex flex-col leading-none">
-                        <span class="text-2xl font-extrabold tracking-tighter text-white">INVILA<span class="text-[10px] align-top ml-0.5 font-bold text-blue-400">TM</span></span>
-                        <span class="text-[9px] text-blue-300 font-bold tracking-[0.35em] mt-1.5 uppercase">Water as a Service</span>
+                        <span class="text-4xl md:text-6xl font-black tracking-tighter text-white">INVILA<span class="text-sm align-top ml-1 font-bold text-blue-400">TM</span></span>
+                        <span class="text-[12px] md:text-[14px] text-blue-300 font-bold tracking-[0.4em] mt-3 uppercase">Water as a Service</span>
                     </div>
-                </div>
+                </a>
 
-                <!-- Desktop Navigation: To The Point -->
-                <nav class="hidden lg:flex items-center space-x-12">
-                    <a href="#" class="nav-link text-[11px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Zero Capex</a>
-                    <a href="#" class="nav-link text-[11px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Solutions</a>
-                    <a href="#" class="nav-link text-[11px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Portfolio</a>
-                    <a href="#" class="nav-link text-[11px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">IoT Tech</a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex items-center space-x-12">
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Zero Capex</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Solutions</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">Portfolio</a>
+                    <a href="#" class="nav-link text-[12px] font-bold tracking-[0.2em] text-slate-400 hover:text-white uppercase">IoT Tech</a>
                 </nav>
 
                 <!-- CTA -->
                 <div class="hidden md:block">
-                    <button class="btn-cta px-9 py-3 rounded-full text-[11px] font-extrabold tracking-[0.18em] text-white">
+                    <button class="btn-cta px-10 py-4 rounded-full text-[12px] font-extrabold tracking-[0.18em] text-white">
                         HUBUNGI PARTNER
                     </button>
                 </div>
 
                 <!-- Mobile Toggle -->
                 <button class="lg:hidden text-white p-2" onclick="toggleMenu()">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -154,12 +159,12 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-slate-950/98 border-b border-white/5 p-8 flex flex-col space-y-6">
-            <a href="#" class="text-sm font-bold tracking-widest text-slate-300 uppercase">Zero Capex</a>
-            <a href="#" class="text-sm font-bold tracking-widest text-slate-300 uppercase">Solutions</a>
-            <a href="#" class="text-sm font-bold tracking-widest text-slate-300 uppercase">Portfolio</a>
-            <a href="#" class="text-sm font-bold tracking-widest text-slate-300 uppercase">IoT Tech</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Zero Capex</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Solutions</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">Portfolio</a>
+            <a href="#" class="text-base font-bold tracking-widest text-slate-300 uppercase">IoT Tech</a>
             <div class="pt-4">
-                <button class="btn-cta w-full py-4 rounded-2xl text-xs font-bold tracking-widest uppercase">Hubungi Partner</button>
+                <button class="btn-cta w-full py-5 rounded-2xl text-sm font-bold tracking-widest uppercase">Hubungi Partner</button>
             </div>
         </div>
     </header>
@@ -167,7 +172,7 @@
     <div class="hero-mesh"></div>
 
     <!-- Main Content Section -->
-    <main class="container mx-auto px-6 pt-44 pb-20 flex flex-col items-center text-center">
+    <main class="container mx-auto px-6 pt-80 pb-20 flex flex-col items-center text-center">
         <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-widest uppercase mb-10">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -189,13 +194,6 @@
         <div class="flex flex-col sm:flex-row gap-5">
             <button class="px-12 py-5 bg-white text-slate-950 font-extrabold rounded-full hover:bg-blue-50 transition-all shadow-2xl shadow-white/5">Mulai Zero Capex</button>
             <button class="px-12 py-5 bg-transparent border border-slate-700 text-white font-extrabold rounded-full hover:bg-slate-800 transition-all">Lihat Roadmap Teknologi</button>
-        </div>
-
-        <div class="mt-24 pt-10 border-t border-white/5 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-            <div class="flex items-center justify-center font-bold tracking-tighter text-xl">TRUSTED</div>
-            <div class="flex items-center justify-center font-bold tracking-tighter text-xl">PARTNER</div>
-            <div class="flex items-center justify-center font-bold tracking-tighter text-xl">INDUSTRY</div>
-            <div class="flex items-center justify-center font-bold tracking-tighter text-xl">READY</div>
         </div>
     </main>
 
